@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jishen Yin</title>
-    <link>http://YinJishen.github.io/</link>
+    <link>https://yinjishen.github.io/</link>
     <description>Recent content on Jishen Yin</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 26 Aug 2020 20:09:25 -0400</lastBuildDate>
     
-	<atom:link href="http://YinJishen.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yinjishen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Building a GitHub Page with theme using Hugo (Windows)</title>
-      <link>http://YinJishen.github.io/post/github-pages/</link>
+      <link>https://yinjishen.github.io/post/github-pages/</link>
       <pubDate>Wed, 26 Aug 2020 20:09:25 -0400</pubDate>
       
-      <guid>http://YinJishen.github.io/post/github-pages/</guid>
+      <guid>https://yinjishen.github.io/post/github-pages/</guid>
       <description>This is my first personal blog built with Hugo, and it took me a really long time to read the official guideline and work through every single details.
 Preparation Since my computer&amp;rsquo;s system is Windows 10, which makes it less convenient to finish this job, I need to do the following preparations before all steps.
   Install Chocolatey to install Hugo
