@@ -82,7 +82,7 @@
 <h2 id="3nf">3NF</h2>
 <p>For Playlist Table, I noticed that <code>playlist_genre</code> and <code>playlist_subgenre</code> have dependency with each other. So I created a new table Genre to store the relationship between genre and subgenre.</p>
 <h2 id="result-and-sql">Result and SQL</h2>
-<p><img src="'/table.png'" alt="image"></p>
+<p><img src="/table.png" alt="image"></p>
 <p>For selecting playlists that contain instrumental. I left join Song with Playlist, filtering record with <code>instrumentalness</code> &gt; 0.5, and then find all distinct Playlist_name</p>
 <pre><code>SELECT DISTINCT Playlist.playlist_name
 FROM
