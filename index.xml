@@ -5,10 +5,21 @@
     <link>https://yinjishen.github.io/</link>
     <description>Recent content on Jishen Yin</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 22 Sep 2020 16:31:21 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2020 14:46:55 -0400</lastBuildDate>
     
 	<atom:link href="https://yinjishen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Third Normal Form of Spotify Song Dataset</title>
+      <link>https://yinjishen.github.io/post/3nf/</link>
+      <pubDate>Thu, 08 Oct 2020 14:46:55 -0400</pubDate>
+      
+      <guid>https://yinjishen.github.io/post/3nf/</guid>
+      <description>Data source: https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md
+Source Code: https://github.com/YinJishen/Biostat823-Homework/tree/master/hw4
+1NF To get the first normal form. I firstly checked the uniqueness of rows and columns. There is no duplicate for both dimensions. And all cells only contain one elements. So I simply make some data cleaning work. For duration_ms, I translated it into duration_min by dividing 60,000. And for track_name and track_album_name, I noticed that there are a lot of &amp;ldquo;remix&amp;rdquo; and &amp;ldquo;feat&amp;rdquo; words in the name, which I believe is unnecessary.</description>
+    </item>
     
     <item>
       <title>Visualization</title>
