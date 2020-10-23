@@ -5,10 +5,22 @@
     <link>https://yinjishen.github.io/</link>
     <description>Recent content on Jishen Yin</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 08 Oct 2020 14:46:55 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2020 15:31:49 -0400</lastBuildDate>
     
 	<atom:link href="https://yinjishen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Oldest Character in Star Wars Series</title>
+      <link>https://yinjishen.github.io/post/star_war/</link>
+      <pubDate>Fri, 23 Oct 2020 15:31:49 -0400</pubDate>
+      
+      <guid>https://yinjishen.github.io/post/star_war/</guid>
+      <description>Source Code: https://github.com/YinJishen/Biostat823-Homework/tree/master/hw5
+API documentation: https://swapi.dev/documentation
+Download the data This problem requires us to find all people and all films using the API. Since the url is formatted such as &amp;ldquo;https://swapi.dev/api/people/32&amp;quot; or &amp;ldquo;https://swapi.dev/api/films/3&amp;quot;.
+So in order to get all people and films, I looped from 1 to 100 for &amp;ldquo;people&amp;rdquo; and 1 to 10 for &amp;ldquo;film&amp;rdquo;. If the url does not work, it will return {&amp;ldquo;details&amp;rdquo;: None}. So I can filter this result by checking if &amp;ldquo;details&amp;rdquo; is in the json file.</description>
+    </item>
     
     <item>
       <title>Third Normal Form of Spotify Song Dataset</title>
