@@ -5,10 +5,22 @@
     <link>https://yinjishen.github.io/</link>
     <description>Recent content on Jishen Yin</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 23 Oct 2020 15:31:49 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2020 20:07:49 -0500</lastBuildDate>
     
 	<atom:link href="https://yinjishen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dashboard for Data of PhDs Awarded in the US</title>
+      <link>https://yinjishen.github.io/post/dashboard/</link>
+      <pubDate>Wed, 04 Nov 2020 20:07:49 -0500</pubDate>
+      
+      <guid>https://yinjishen.github.io/post/dashboard/</guid>
+      <description>Data Source: https://ncses.nsf.gov/pubs/nsf19301/data
+GitHub Page: https://github.com/YinJishen/Biostat823-Homework/tree/master/hw6
+Dashboard Url: https://demo-case.herokuapp.com/
+In this homework, I used two table: table 4 and table 6. The preprocess steps are in preprocess.ipynb file. I mainly used melt and concat function in pandas to change the data from the wide format into long format. For data in table 6, there are some &amp;ldquo;D&amp;rdquo; numbers that indicate confidential data, I cleared this data before doing the visualization part in case that the error message arises.</description>
+    </item>
     
     <item>
       <title>Oldest Character in Star Wars Series</title>
