@@ -5,10 +5,21 @@
     <link>https://yinjishen.github.io/</link>
     <description>Recent content on Jishen Yin</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 05 Nov 2020 16:57:40 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2020 19:15:13 -0500</lastBuildDate>
     
 	<atom:link href="https://yinjishen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>COVID-19 Team Project</title>
+      <link>https://yinjishen.github.io/post/fp823/</link>
+      <pubDate>Sun, 15 Nov 2020 19:15:13 -0500</pubDate>
+      
+      <guid>https://yinjishen.github.io/post/fp823/</guid>
+      <description>This is the final project of BIOSTAT823: Statistical Programming for Big Data in 2020 Fall Semester at Duke. Our team name is &amp;ldquo;Durham Sloths&amp;rdquo;. This project is finished by Zhuoran Hou(https://github.com/ZhuoranHou), Qianyin Lu (https://github.com/QianyinLu), Jishen Yin (https://github.com/YinJishen) and Zewen Zhang (https://github.com/zewenzhang1007).
+Project GitHub Page: https://github.com/YinJishen/BIOSTAT823-Final-Project
+In this project, we mainly work on the analysis on different aspects of COVID-19 data. In part 1, we recreated the overview of COVID-19 in U.</description>
+    </item>
     
     <item>
       <title>Deep learning model fitting for insect classification</title>
