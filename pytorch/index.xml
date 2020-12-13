@@ -5,22 +5,34 @@
     <link>https://yinjishen.github.io/pytorch/</link>
     <description>Recent content in Pytorches on Jishen Yin</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 26 Aug 2020 20:09:25 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 13 Dec 2020 16:36:06 -0500</lastBuildDate>
     
 	<atom:link href="https://yinjishen.github.io/pytorch/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Building a GitHub Page with theme using Hugo (Windows)</title>
-      <link>https://yinjishen.github.io/pytorch/github-pages-1/</link>
-      <pubDate>Wed, 26 Aug 2020 20:09:25 -0400</pubDate>
+      <title>引言及第一章：深度学习与Pytorch的安装和配置</title>
+      <link>https://yinjishen.github.io/pytorch/i/</link>
+      <pubDate>Sun, 13 Dec 2020 16:36:06 -0500</pubDate>
       
-      <guid>https://yinjishen.github.io/pytorch/github-pages-1/</guid>
-      <description>This is my first personal blog built with Hugo, and it took me a really long time to read the official guideline and work through every single details.
-Preparation Since my computer&amp;rsquo;s system is Windows 10, which makes it less convenient to finish this job, I need to do the following preparations before all steps.
-  Install Chocolatey to install Hugo
-  Install Hugo with Chocolatey
-  Install Typora (Markdown editor)</description>
+      <guid>https://yinjishen.github.io/pytorch/i/</guid>
+      <description>此为深度学习书籍《Deep Learning with Pytorch》学习笔记整理系列第一期，因为电脑配置问题，将跳过所有设置CUDA/GPU的内容
+书籍pdf链接：https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf
+书籍附源代码链接：https://github.com/deep-learning-with-pytorch/dlwpt-code
+复现代码链接（实时更新）：https://github.com/YinJishen/deep-learning-with-pytorch
+注：所有实现代码均包含以下命令，此后将省略
+%matplotlib inline import matplotlib.pyplot as plt #导入可视化库matplotlib.pyplot import numpy as np #导入tensor常规处理库 #Pytorch主要部件导入 import torch import torch.nn as nn import torch.nn.functional as F import torch.optim as optim torch.set_printoptions(edgeitems=2) #输出长tensor时，保留首尾各2个元素 torch.manual_seed(123) #设置随机数种子 结构框架 本书共分为三部分
+第一部分：1-8章 理解Pytorch所需的基本知识，以及如何建立自己的Pytorch项目。
+第二部分：9-14章 肺癌检测系统的建立，各章将逐步递进，以理解深度学习项目在实际操作中的技巧与注意事项。
+第三部分：15章 如何将Pytorch模型部署在网络服务平台，嵌入C++项目，或植入手机系统
+第一章：深度学习简介与Pytorch库 1.1 深度学习革命 二十年前，多数涉及机器学习的方法都以特征工程为核心。特征是指经过变换的输入数据，用于帮助算法（如分类、回归、聚类）的实现。而变换方法既取决于实际问题，更依赖于先验知识。例如，在手写数字识别问题中，为了区分0和1两种数字，我们需要完成一系列的过滤器来估计图形边的方向（此步骤为特征工程），并根据这些方向的分布建立分类器进行学习。当然，我们也可以使用“闭环的数量”这一特征，来区分0、8、22等。
+而深度学习，致力于自动完成特征工程，以用于分类。也就是说，以区分0和1为例，深度学习模型会在训练过程中自动寻找有用的特征，并不断更新。当然，这仍然需要我们对相关问题的背景有充足的先验知识，但深度学习模型的关键点在于，它不注重于具体特征的构造与实现，而更加关注如何利用数学知识使其能够自动完成特征的寻找与更正。
+如下图所示，左图是一个深度学习工程师，她只需要将原数据直接扔进黑箱子，在黑箱子内部自动完成清洗、整理、预测等一系列工作。而右图是一个传统的机器学习工程师，在进行模型训练之前，他需要将数据先进行手动处理，再扔进机器例进行运转。两者的区别在于，左图中的系统发现结果不令人满意，会自动调整数据的处理方式。而右图中的系统再产生不理想的结果后，工程师仍需要手动调整，直至得到满意的结果。
+1.2 Pytorch安装与配置 Pytorch是专门用于深度学习的非常强大的库，如下图所示，Pytorch可以实现一个大型深度学习项目的完整链条。首先，我们需要把原数据转化为Pytorch的核心组件——tensor。随后对模型进行训练，此过程可与分布式计算系统进行交互。训练完成后，可将训练结果按照实际需求进行部署。
+ 同样，Pytorch的安装非常简单。它为我们提供了非常完善的文档来帮助我们安装，我们只需要上Pytorch官网（https://pytorch.org/get-started/locally/），针对自己的需求选择版本与操作系统，即可自动生成安装命令。
+如果是在anaconda下的环境运行python，则打开anaconda prompt粘贴对应命令。如果是在本地环境下运行python，则打开cmd命令行窗口（windows）/terminal（mac）粘贴对应命令。
+本章小结  深度学习模型自动学习如何联系输入与输出数据 Pytorch帮助相关从业者有效的建立与训练深度学习模型  练习题   你的Python是什么版本？（建议3.6或以上）
+  安装Pytorch；你是否能执行以下命令？</description>
     </item>
     
   </channel>
