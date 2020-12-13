@@ -3,7 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://yinjishen.github.io/post/fp823/</loc>
+    <loc>https://yinjishen.github.io/bio/</loc>
+    <lastmod>2020-11-15T19:15:13-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yinjishen.github.io/bio/fp823/</loc>
     <lastmod>2020-11-15T19:15:13-05:00</lastmod>
   </url>
   
@@ -13,42 +18,47 @@
   </url>
   
   <url>
-    <loc>https://yinjishen.github.io/post/</loc>
-    <lastmod>2020-11-15T19:15:13-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yinjishen.github.io/post/deeplearning/</loc>
+    <loc>https://yinjishen.github.io/bio/deeplearning/</loc>
     <lastmod>2020-11-05T16:57:40-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yinjishen.github.io/post/dashboard/</loc>
+    <loc>https://yinjishen.github.io/bio/dashboard/</loc>
     <lastmod>2020-11-04T20:07:49-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yinjishen.github.io/post/star_war/</loc>
+    <loc>https://yinjishen.github.io/bio/star_war/</loc>
     <lastmod>2020-10-23T15:31:49-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yinjishen.github.io/post/3nf/</loc>
+    <loc>https://yinjishen.github.io/bio/3nf/</loc>
     <lastmod>2020-10-08T14:46:55-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yinjishen.github.io/post/visualization/</loc>
+    <loc>https://yinjishen.github.io/bio/visualization/</loc>
     <lastmod>2020-09-22T16:31:21-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yinjishen.github.io/post/euler-project/</loc>
+    <loc>https://yinjishen.github.io/bio/euler-project/</loc>
     <lastmod>2020-09-01T18:58:20-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yinjishen.github.io/post/github-pages/</loc>
+    <loc>https://yinjishen.github.io/bio/github-pages/</loc>
+    <lastmod>2020-08-26T20:09:25-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yinjishen.github.io/pytorch/github-pages-1/</loc>
+    <lastmod>2020-08-26T20:09:25-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yinjishen.github.io/pytorch/</loc>
     <lastmod>2020-08-26T20:09:25-04:00</lastmod>
   </url>
   

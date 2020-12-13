@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>COVID-19 Team Project - Jishen Yin</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="COVID-19 Team Project">
+<meta itemprop="description" content="Final Project of the course BIOSTAT823">
+<meta itemprop="datePublished" content="2020-11-15T19:15:13-05:00" />
+<meta itemprop="dateModified" content="2020-11-15T19:15:13-05:00" />
+<meta itemprop="wordCount" content="432">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="COVID-19 Team Project" />
+<meta property="og:description" content="Final Project of the course BIOSTAT823" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yinjishen.github.io/bio/fp823/" />
+<meta property="article:published_time" content="2020-11-15T19:15:13-05:00" />
+<meta property="article:modified_time" content="2020-11-15T19:15:13-05:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="COVID-19 Team Project"/>
+<meta name="twitter:description" content="Final Project of the course BIOSTAT823"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yinjishen.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yinjishen.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://yinjishen.github.io/css/dark.css" />
+
+	<script src="https://yinjishen.github.io/js/feather.min.js"></script>
+	
+		<script src="https://yinjishen.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<h1 class="site-title"><a href="https://yinjishen.github.io/">Jishen Yin</a></h1>
+	<div class="site-description"><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/YinJishen" title="Github"><i data-feather="github"></i></a></li></ul>
+		</nav></div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/bio">Biostat 823</a>
+			</li>
+			
+			<li>
+				<a href="/pytorch">Pytorch</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">15</span>
+							<span class="rest">Nov 2020</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">COVID-19 Team Project</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>This is the final project of BIOSTAT823: Statistical Programming for Big Data in 2020 Fall Semester at Duke. Our team name is &ldquo;Durham Sloths&rdquo;. This project is finished by Zhuoran Hou(<a href="https://github.com/ZhuoranHou),">https://github.com/ZhuoranHou),</a> Qianyin Lu (<a href="https://github.com/QianyinLu),">https://github.com/QianyinLu),</a> Jishen Yin (<a href="https://github.com/YinJishen">https://github.com/YinJishen</a>) and Zewen Zhang (<a href="https://github.com/zewenzhang1007)">https://github.com/zewenzhang1007)</a>.</p>
+<p>Project GitHub Page: <a href="https://github.com/YinJishen/BIOSTAT823-Final-Project">https://github.com/YinJishen/BIOSTAT823-Final-Project</a></p>
+<p>In this project, we mainly work on the analysis on different aspects of COVID-19 data. In part 1, we recreated the overview of COVID-19 in U.S., referencing 1points3acres with the CDC data, updated with real time. In part 2, we used some simple metrics to compare the effect of policies between state, such as face mask mandatory. We also compared the increase rate in each state with the increase rate in the whole U.S. and made the map plot to show it. In part 3, we built a random forest model to predict the increased rate based on hospitalization data, policy data and demographic data. In part 4, we analyzed the individual level data, comparing COVID-19 metric between different race, age and sex. We also included sampling method in part 4, since the whole dataset is quite large.</p>
+<p>We built the structure of this project together. So I will simply discuss about the parts that I took responsible for. For data collection and data preprocessing, I worked on the data about hospitalization. It&rsquo; not hard, the data is quite clean. What I did was to delete the variables about confidence interval, cause it has high correlation with the estimate variable. It also took me some time to find the codebook of the dataset since it&rsquo;s hidden behind the data source website.</p>
+<p>For the dashboard, each page represents one part in the project. I firstly finished the random forest model and gave satisfactory results, the dashboard part is finished by Presnie Lu. In part 2, I worked on both the coding and dashboard part. When creating the dashboard, it&rsquo;s hard to create a map plot since it&rsquo;s my first time to use the map plot with streamlit. Fortunately, Zhuoran worked on part 1, which also contained a map plot. With the help of Zhuoran, I successfully created an interactive map plot.</p>
+<p>I think the main challenge of this project is the time. All of us had a busy schedule in these weeks. But still, we can squeeze our time to have meetings  and work on this project. I think our project is terrific, even though we could do it much better if we have more time. I sincerely want to thank my teammate for being so efficient and full of team spirit. It&rsquo;s a great experience for us.</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+				
+			</div></div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2020  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>
