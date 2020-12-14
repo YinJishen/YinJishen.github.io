@@ -16,7 +16,7 @@
       <pubDate>Sun, 13 Dec 2020 16:36:06 -0500</pubDate>
       
       <guid>https://yinjishen.github.io/pytorch/i/</guid>
-      <description>此为深度学习书籍《Deep Learning with Pytorch》学习笔记整理系列第一期，因为电脑配置问题，将跳过所有设置CUDA/GPU的内容
+      <description>此为深度学习书籍《Deep Learning with Pytorch》学习笔记整理系列第一期，因为电脑配置问题，将跳过涉及CUDA/GPU的内容
 书籍pdf链接：https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf
 书籍附源代码链接：https://github.com/deep-learning-with-pytorch/dlwpt-code
 复现代码链接（实时更新）：https://github.com/YinJishen/deep-learning-with-pytorch
@@ -32,7 +32,7 @@
  同样，Pytorch的安装非常简单。它为我们提供了非常完善的文档来帮助我们安装，我们只需要上Pytorch官网（https://pytorch.org/get-started/locally/），针对自己的需求选择版本与操作系统，即可自动生成安装命令。
 如果是在anaconda下的环境运行python，则打开anaconda prompt粘贴对应命令。如果是在本地环境下运行python，则打开cmd命令行窗口（windows）/terminal（mac）粘贴对应命令。
 本章小结  深度学习模型自动学习如何联系输入与输出数据 Pytorch帮助相关从业者有效的建立与训练深度学习模型  练习题   你的Python是什么版本？（建议3.6或以上）
-  安装Pytorch；你是否能执行以下命令？</description>
+  安装Pytorch并确认能执行以下命令</description>
     </item>
     
     <item>
