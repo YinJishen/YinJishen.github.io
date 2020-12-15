@@ -5,10 +5,29 @@
     <link>https://yinjishen.github.io/pytorch/</link>
     <description>Recent content in Pytorches on Jishen Yin</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 13 Dec 2020 16:36:06 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 14 Dec 2020 17:16:51 -0500</lastBuildDate>
     
 	<atom:link href="https://yinjishen.github.io/pytorch/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第二章：预训练模型（偏趣味）</title>
+      <link>https://yinjishen.github.io/pytorch/ii/</link>
+      <pubDate>Mon, 14 Dec 2020 17:16:51 -0500</pubDate>
+      
+      <guid>https://yinjishen.github.io/pytorch/ii/</guid>
+      <description>此为深度学习书籍《Deep Learning with Pytorch》学习笔记整理系列第二期，因为电脑配置问题，将跳过涉及CUDA/GPU的内容
+书籍pdf链接：https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf
+书籍附源代码链接：https://github.com/deep-learning-with-pytorch/dlwpt-code
+复现代码链接（实时更新）：https://github.com/YinJishen/deep-learning-with-pytorch
+注：所有实现代码均包含以下命令，此后将省略
+%matplotlib inline import matplotlib.pyplot as plt #导入可视化库matplotlib.pyplot import numpy as np #导入tensor常规处理库 #Pytorch主要部件导入 import torch import torch.nn as nn import torch.nn.functional as F import torch.optim as optim torch.set_printoptions(edgeitems=2) #输出长tensor时，保留首尾各2个元素 torch.manual_seed(123) #设置随机数种子 第二章：预训练模型 这章主要介绍了torchvision.models中的一些预训练模型，预训练模型是指：
+ 模型结构确定，无需自己建立模型 模型中的大量系数已被训练好，可以直接下载，无需重新训练  在实际应用中，很少遇到可以直接使用预训练模型的情况，所以这一章更多以好玩为主。这章主要介绍了三个案例
+ 给图片加标签 对图片进行主题转换 为图片提供描述文字  问题本身可推广性并不强，所以这篇学习笔记主要侧重于对模型原理的介绍，以及代码中涉及到的PyTorch函数说明。
+2.1 给图片加标签 图像分类是经典的多分类问题。在训练集中，我们拥有大量拥有标签（如：鸟、老虎、红绿灯等）的图片，我们希望对训练集建立网络，通过训练得到一个自动标注系统，可以对任意新图片进行标注。数据集是著名的ImageNet数据集（http://imagenet.stanford.edu），该数据集包含超过一千四百万张带标注的图片，因此有很多相关联的算法赛。其中，ILSVRC是颇受欢迎的一个竞赛。该竞赛每年会针对ImageNet数据集提出很多问题供大家比赛使用。比如说，图像分类任务就是给你一些图片，要求对每个图片输出5个标签（所有标签共有1000种），竞赛的检验标准是top-5误差率，也就是实际标签不在这五个结果里的比例。以上是此书2.1的问题描述。
+在陈述模型之前，先陈述数据预处理方法。此问题的数据，都是png格式的图片。因为是RGB格式，所以每张图片实际上是3*w*h，3表示红绿蓝三个颜色，w和h是图片宽高，所有元素值都是0-255的整数。因为不同图片的大小很可能不同，因此我们需要将其进行统一，即压缩至同一个大小。torchvision.transforms中有大量的图像预处理函数，详情见https://pytorch.org/docs/stable/torchvision/transforms.html。这里我们先给出此问题预处理代码
+from torchvision import transforms preprocess = transforms.Compose([ transforms.Resize(256), #缩放 transforms.CenterCrop(224), #剪裁 transforms.ToTensor(), #PILImage格式变成tensor格式 transforms.Normalize( #标准化 mean=[0.</description>
+    </item>
     
     <item>
       <title>引言及第一章：深度学习与Pytorch的安装和配置</title>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>第二章：预训练模型（偏趣味） - Jishen Yin</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="第二章：预训练模型（偏趣味）">
+<meta itemprop="description" content="AlexNet &amp; ResNet &amp; GAN &amp; CycleGAN">
+<meta itemprop="datePublished" content="2020-12-14T17:16:51-05:00" />
+<meta itemprop="dateModified" content="2020-12-14T17:16:51-05:00" />
+<meta itemprop="wordCount" content="88">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="第二章：预训练模型（偏趣味）" />
+<meta property="og:description" content="AlexNet &amp; ResNet &amp; GAN &amp; CycleGAN" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yinjishen.github.io/pytorch/ii/" />
+<meta property="article:published_time" content="2020-12-14T17:16:51-05:00" />
+<meta property="article:modified_time" content="2020-12-14T17:16:51-05:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="第二章：预训练模型（偏趣味）"/>
+<meta name="twitter:description" content="AlexNet &amp; ResNet &amp; GAN &amp; CycleGAN"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yinjishen.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yinjishen.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://yinjishen.github.io/css/dark.css" />
+
+	<script src="https://yinjishen.github.io/js/feather.min.js"></script>
+	
+		<script src="https://yinjishen.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<h1 class="site-title"><a href="https://yinjishen.github.io/">Jishen Yin</a></h1>
+	<div class="site-description"><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/YinJishen" title="Github"><i data-feather="github"></i></a></li></ul>
+		</nav></div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/bio">Biostat 823</a>
+			</li>
+			
+			<li>
+				<a href="/pytorch">Pytorch</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">14</span>
+							<span class="rest">Dec 2020</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">第二章：预训练模型（偏趣味）</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>此为深度学习书籍《Deep Learning with Pytorch》学习笔记整理系列第二期，因为电脑配置问题，将跳过涉及CUDA/GPU的内容</p>
+<p>书籍pdf链接：https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf</p>
+<p>书籍附源代码链接：https://github.com/deep-learning-with-pytorch/dlwpt-code</p>
+<p>复现代码链接（实时更新）：https://github.com/YinJishen/deep-learning-with-pytorch</p>
+<p>注：所有实现代码均包含以下命令，此后将省略</p>
+<pre><code>%matplotlib inline
+import matplotlib.pyplot as plt #导入可视化库matplotlib.pyplot
+import numpy as np #导入tensor常规处理库
+
+#Pytorch主要部件导入
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+
+torch.set_printoptions(edgeitems=2) #输出长tensor时，保留首尾各2个元素
+torch.manual_seed(123) #设置随机数种子
+</code></pre><h1 id="第二章预训练模型">第二章：预训练模型</h1>
+<p>这章主要介绍了<code>torchvision.models</code>中的一些预训练模型，预训练模型是指：</p>
+<ol>
+<li>模型结构确定，无需自己建立模型</li>
+<li>模型中的大量系数已被训练好，可以直接下载，无需重新训练</li>
+</ol>
+<p>在实际应用中，很少遇到可以直接使用预训练模型的情况，所以这一章更多以好玩为主。这章主要介绍了三个案例</p>
+<ol>
+<li>给图片加标签</li>
+<li>对图片进行主题转换</li>
+<li>为图片提供描述文字</li>
+</ol>
+<p>问题本身可推广性并不强，所以这篇学习笔记主要侧重于对模型原理的介绍，以及代码中涉及到的<code>PyTorch</code>函数说明。</p>
+<h2 id="21-给图片加标签">2.1 给图片加标签</h2>
+<p><strong>图像分类</strong>是经典的多分类问题。在训练集中，我们拥有大量拥有标签（如：鸟、老虎、红绿灯等）的图片，我们希望对训练集建立网络，通过训练得到一个自动标注系统，可以对任意新图片进行标注。数据集是著名的ImageNet数据集（http://imagenet.stanford.edu），该数据集包含超过一千四百万张带标注的图片，因此有很多相关联的算法赛。其中，ILSVRC是颇受欢迎的一个竞赛。该竞赛每年会针对ImageNet数据集提出很多问题供大家比赛使用。比如说，图像分类任务就是给你一些图片，要求对每个图片输出5个标签（所有标签共有1000种），竞赛的检验标准是top-5<strong>误差率</strong>，也就是实际标签不在这五个结果里的比例。以上是此书2.1的问题描述。</p>
+<p>在陈述模型之前，先陈述数据预处理方法。此问题的数据，都是png格式的图片。因为是<strong>RGB格式</strong>，所以每张图片实际上是3*w*h，3表示红绿蓝三个颜色，w和h是图片宽高，所有元素值都是0-255的整数。因为不同图片的大小很可能不同，因此我们需要将其进行统一，即压缩至同一个大小。<code>torchvision.transforms</code>中有大量的<strong>图像预处理</strong>函数，详情见https://pytorch.org/docs/stable/torchvision/transforms.html。这里我们先给出此问题预处理代码</p>
+<pre><code>from torchvision import transforms
+preprocess = transforms.Compose([
+	transforms.Resize(256), #缩放
+	transforms.CenterCrop(224), #剪裁
+	transforms.ToTensor(), #PILImage格式变成tensor格式
+	transforms.Normalize( #标准化
+		mean=[0.485, 0.456, 0.406],
+		std=[0.229, 0.224, 0.225]
+	)
+])
+img_t = preprocess(img)
+</code></pre><p>这里，<code>transforms.Compose</code>以一系列变换操作作为输入，得到一个黑箱子<code>preprocess</code>，当图像<code>img</code>被传入该黑箱子时，会先被缩放，然后被剪裁，最后转化格式并标准化。具体的函数<code>Resize</code>等的用法，均可在https://pytorch.org/docs/stable/torchvision/transforms.html中查阅。除了这些之外，还有旋转、灰度处理等功能。</p>
+<p>好的，下面看第一个模型，<strong>AlexNet网络</strong>是2012年提出的，作为当年ILSVRC的冠军，他以15.4%的top-5误差率技惊四座，那年的第二名误差率是26.2%。从现在的视角看，这个网络结构并不复杂，但对于当年的环境，该网络确是里程碑式的发现，让大家认识到了深度学习在图像处理问题上的潜力。模型结构如下图所示</p>
+<p><img src="/pytorch/2/2-1.PNG" alt="image"></p>
+<!-- raw HTML omitted -->
+<p>该网络以3乘224乘224的网络为输入，经过若干卷积层（先内卷），再经过若干线性层（再躺平），最后得到一个1000维的向量，也就是1000个标签各自的分数，通过<code>F.softmax</code>（https://pytorch.org/docs/stable/nn.functional.html）可将其转化为概率分布，即属于每一类的概率。下面看代码</p>
+<pre><code>alexnet = models.AlexNet()
+</code></pre><p>由此我们得到一个<strong>类</strong><code>alexnet</code>，对于任意输入，可以通过<code>output=alexnet(input)</code>来得到标签分布。但是这里如果直接这样做将毫无意义，因为类中的参数完全是随机初始化状态，并没有经过训练。要么需要我们自己训练，要么使用训练好的参数。只需要在括号里加<code>pretrained=True</code>即可。</p>
+<p>下面介绍ResNet，即<strong>残差网络</strong>。使用<code>models.resnet101</code>这个函数，我们可以直接得到一个101层的网络。在该网络于2015年发表之前，拥有如此深度的网络大多数都不够稳定。残差网络第一次解决了这个问题，因此也作为卷积神经网络历史上重要的里程碑模型。这里我们只需要<code>resnet=models.resnet101(pretrained=True)</code>，即得到可直接使用的ResNet，我们把下图经过预处理后输入该模型，得到分数最高的标签是“golden retriever”（金毛猎犬），这恒河里！</p>
+<p><img src="/pytorch/2/2-2.PNG" alt="image"></p>
+<!-- raw HTML omitted -->
+<p>（未完待续）</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+				
+			</div></div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2020  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>
