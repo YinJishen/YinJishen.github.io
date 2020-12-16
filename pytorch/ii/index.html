@@ -7,7 +7,7 @@
 <meta itemprop="description" content="AlexNet &amp; ResNet &amp; GAN &amp; CycleGAN">
 <meta itemprop="datePublished" content="2020-12-14T17:16:51-05:00" />
 <meta itemprop="dateModified" content="2020-12-14T17:16:51-05:00" />
-<meta itemprop="wordCount" content="88">
+<meta itemprop="wordCount" content="132">
 
 
 
@@ -131,7 +131,46 @@ img_t = preprocess(img)
 <p>下面介绍ResNet，即<strong>残差网络</strong>。使用<code>models.resnet101</code>这个函数，我们可以直接得到一个101层的网络。在该网络于2015年发表之前，拥有如此深度的网络大多数都不够稳定。残差网络第一次解决了这个问题，因此也作为卷积神经网络历史上重要的里程碑模型。这里我们只需要<code>resnet=models.resnet101(pretrained=True)</code>，即得到可直接使用的ResNet，我们把下图经过预处理后输入该模型，得到分数最高的标签是“golden retriever”（金毛猎犬），这恒河里！</p>
 <p><img src="/pytorch/2/2-2.PNG" alt="image"></p>
 <!-- raw HTML omitted -->
-<p>（未完待续）</p>
+<h2 id="22-对图片进行主题转换">2.2 对图片进行主题转换</h2>
+<p>我们首先用书中的例子来介绍何为<strong>GAN游戏</strong>。假设有一个职业罪犯，以卖知名作家的“遗失”假画为生。作为罪犯，他绘画技术并不出众，当他仿制了毕加索的画之后，别人一眼便能认出这是假画。即使他经过了大量的练习，当把画拿到市场去售卖时，也会被资深的收藏家一眼识破。那么他能做的唯有在已有的画上做随机的修改，然后不断去碰运气，直到不会被认成假画。这样做的效率极低。</p>
+<p>那么，如果该罪犯能够找到一个同伙，这名同伙是一名道德败坏的艺术史学家。那么这个罪犯就可以不断地把仿制的画给他鉴别，让他帮忙指出，哪些地方让人一看便知此画为假。这样他便有了改进的方向，直到这幅画连艺术史学家也看不出是假的，罪犯就可以拿这幅画去市场卖。</p>
+<p>这个例子有点玄幻，但是却很形象的介绍了GAN的概念</p>
+<h3 id="221-gan游戏">2.2.1 GAN游戏</h3>
+<p><strong>GAN（generetive adversial network）</strong>，生成对抗网络，是由两个网络拼接而成，这两个网络分别就是上例中的负责创作的“罪犯”和负责鉴别的“艺术史学家”。“生成”是指该网络以创造新的“画”为目的，“对抗”是指两个网络之间存在对抗关系。“罪犯”希望能骗过“艺术史学家”，“艺术史学家”要对“罪犯”的仿作挑错。这个网络的具体结构如下图所示</p>
+<p><img src="/pytorch/2/2-3.PNG" alt="image"></p>
+<!-- raw HTML omitted -->
+<p>我们可以看到，该网络由<strong>生成器</strong>和<strong>判别器</strong>组成，判别器经由一系列真实的图片训练，拥有识别假图的能力。而生成器生成的图片如果被判别器否决，就会更新参数以获得更好的创作水平。我们以这种思路为起点，就自然地引入下一个问题：如何把一张图片转化为特定主题？</p>
+<h3 id="222-cyclegan">2.2.2 CycleGAN</h3>
+<p>这里我们考虑的问题是，如何把一张马的图片转化成斑马的图片？以GAN游戏的思想为起点，可以构造<strong>CycleGAN</strong>模型，该模型可以实现两个主题（例如：马和斑马）的图片之间的相互转换，且不需要提供配对的图片作为训练集，也就是说，只需要相互独立的若干马的图片和若干斑马的图片即可。具体结构如下图所示。</p>
+<p><img src="/pytorch/2/2-4.PNG" alt="image"></p>
+<!-- raw HTML omitted -->
+<p>我们看到，此模型中有两个生成器（horseTozebra和zebraTohorse），两个判别器（分别判别horse和zebra）。我们输入一张马的图片，要求第一个生成器能够生成通过zebra判别器检验的图片，且这张图片再经过第二个生成器，仍可以变回horse的图片，通过horse判别器的检验。因为是相互转化，所以模型名称在GAN的基础上，添加了循环Cycle字样。</p>
+<p>下面我们用CycleGAN来分析具体的图片，具体构造方法见https://github.com/deep-learning-with-pytorch/dlwpt-code/blob/master/p1ch2/3_cyclegan.ipynb，后续章节会详细介绍构造方法。我们将下图输入训练好的CycleGAN模型，可以得到对应的斑马图，看起来几乎没有违和感。</p>
+<p><img src="/pytorch/2/horse.jpg" alt="image"></p>
+<!-- raw HTML omitted -->
+<p><img src="/pytorch/2/zebra.jpg" alt="image"></p>
+<!-- raw HTML omitted -->
+<p>很多类似的转换器都以上述原理为基石被不断地扩展和完善，比如AI换脸一类的，当然我们必须要重视这其中的伦理道德与法律安全（包括隐私信息等）的问题。</p>
+<h3 id="223-给图片加描述文字">2.2.3 给图片加描述文字</h3>
+<p>如下图所示，我们采用两层网络拼接的方式，第一层网络为卷积神经网络，用于图像鉴别，第二层为循环神经网络，用于将鉴别的结果转化成文字。这种模型需要大量已经带有文字描述的图片作为训练集才能得到。</p>
+<p><img src="/pytorch/2/2-5.PNG" alt="image"></p>
+<!-- raw HTML omitted -->
+<p>我们采用NeuralTalk2模型（具体实施见https://github.com/deep-learning-with-pytorch/ImageCaptioning.pytorch）对上一部分的马图进行注释，得到的结果是“A person riding a horse on a beach”，听起来很准确。而对转化后的斑马图进行注释，得到的结果的&quot;A group of zebras are standing in a field&rdquo;，它既遗漏了斑马上的人，也弄错了斑马的数量。</p>
+<h2 id="本章小结">本章小结</h2>
+<ol>
+<li>预训练模型是指已经训练好的模型，可以直接使用，而不用重新设计与训练。</li>
+<li>AlexNet和ResNet是两种具有里程碑意义的深度卷积网络</li>
+<li>GAN由生成器和判别器组成，两者在对抗中创造与真实图片难以辨别的图像</li>
+<li>CycleGAN通过循环结构，实现两个不同主题的图片之间的转化。</li>
+<li>NeuralTalk2用CNN和RNN的混合结构来给图片附注文字描述</li>
+</ol>
+<h2 id="练习题">练习题</h2>
+<ol>
+<li>将2-1中金毛猎犬的图片输入horseTozebra模型，看看会生成怎么样的图片？</li>
+</ol>
+<p><img src="/pytorch/2/bobby_zebra.jpg" alt="image"></p>
+<!-- raw HTML omitted -->
+<p>已无力吐槽。。。</p>
 
 			</div>
 
