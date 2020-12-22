@@ -7,7 +7,7 @@
 <meta itemprop="description" content="AlexNet &amp; ResNet &amp; GAN &amp; CycleGAN">
 <meta itemprop="datePublished" content="2020-12-14T17:16:51-05:00" />
 <meta itemprop="dateModified" content="2020-12-14T17:16:51-05:00" />
-<meta itemprop="wordCount" content="132">
+<meta itemprop="wordCount" content="123">
 
 
 
@@ -156,21 +156,6 @@ img_t = preprocess(img)
 <p><img src="/pytorch/2/2-5.PNG" alt="image"></p>
 <!-- raw HTML omitted -->
 <p>我们采用NeuralTalk2模型（具体实施见https://github.com/deep-learning-with-pytorch/ImageCaptioning.pytorch）对上一部分的马图进行注释，得到的结果是“A person riding a horse on a beach”，听起来很准确。而对转化后的斑马图进行注释，得到的结果的&quot;A group of zebras are standing in a field&rdquo;，它既遗漏了斑马上的人，也弄错了斑马的数量。</p>
-<h2 id="本章小结">本章小结</h2>
-<ol>
-<li>预训练模型是指已经训练好的模型，可以直接使用，而不用重新设计与训练。</li>
-<li>AlexNet和ResNet是两种具有里程碑意义的深度卷积网络</li>
-<li>GAN由生成器和判别器组成，两者在对抗中创造与真实图片难以辨别的图像</li>
-<li>CycleGAN通过循环结构，实现两个不同主题的图片之间的转化。</li>
-<li>NeuralTalk2用CNN和RNN的混合结构来给图片附注文字描述</li>
-</ol>
-<h2 id="练习题">练习题</h2>
-<ol>
-<li>将2-1中金毛猎犬的图片输入horseTozebra模型，看看会生成怎么样的图片？</li>
-</ol>
-<p><img src="/pytorch/2/bobby_zebra.jpg" alt="image"></p>
-<!-- raw HTML omitted -->
-<p>已无力吐槽。。。</p>
 
 			</div>
 

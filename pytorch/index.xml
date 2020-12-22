@@ -5,10 +5,39 @@
     <link>https://yinjishen.github.io/pytorch/</link>
     <description>Recent content in Pytorches on Jishen Yin</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 14 Dec 2020 17:16:51 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 21 Dec 2020 23:00:05 -0500</lastBuildDate>
     
 	<atom:link href="https://yinjishen.github.io/pytorch/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第三章：PyTorch中的tensor相关操作总结</title>
+      <link>https://yinjishen.github.io/pytorch/iii/</link>
+      <pubDate>Mon, 21 Dec 2020 23:00:05 -0500</pubDate>
+      
+      <guid>https://yinjishen.github.io/pytorch/iii/</guid>
+      <description>此为深度学习书籍《Deep Learning with Pytorch》学习笔记整理系列第二期，因为电脑配置问题，将跳过涉及CUDA/GPU的内容
+书籍pdf链接：https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf
+书籍附源代码链接：https://github.com/deep-learning-with-pytorch/dlwpt-code
+复现代码链接（实时更新）：https://github.com/YinJishen/deep-learning-with-pytorch
+注：所有实现代码均包含以下命令，此后将省略
+%matplotlib inline import matplotlib.pyplot as plt #导入可视化库matplotlib.pyplot import numpy as np #导入tensor常规处理库 #Pytorch主要部件导入 import torch import torch.nn as nn import torch.nn.functional as F import torch.optim as optim torch.set_printoptions(edgeitems=2) #输出长tensor时，保留首尾各2个元素 torch.manual_seed(123) #设置随机数种子 第三章：Tensor 3.1 浮点数的世界 PyTorch处理数据的主要渠道是浮点数，无论是何种形式的数据（图片、文字、语音等等），都需要通过适当的模型转化成浮点数数据，才能有效地输入网络进行训练。
+PyTorch引入了数据结构张量（tensor）来存储并处理浮点数数据。张量，通俗地讲，就是多维向量。多维向量的维度代表从整体索引到具体的标量元素所需要的下标数量。
+3.2 PyTorch关于tensor的基本操作 注：详细代码见
+构造 如何创建一个tensor？三种方式
+ 将其它形式的数据转化成torch.Tensor，例如torch.from_numpy()、torch.tensot()等 构造指定维度的零向量或一向量，例如zeros、ones等 生成随机向量，例如randn、normal等  索引、切片、变换等 注：索引一律”左闭右开“，即包含起点，不包含终点
+一维索引：
+points[1:4]指从1号元素到4号元素（不包含4号元素）
+points[1:]指从1号元素到末尾
+points[:-1]指从头到倒数第一位元素（不包含倒数第一位元素）
+二维索引：
+points[1:, :]指从1号行到末尾，所有列的元素
+points[1:, :]指从1号行到末尾，0号列的元素
+变形：
+points.transpose()：转置
+points.t()：无复制转置（变量存储地址不变）
+数学操作（加下划线_可能变为内部操作，即in-place） 逐点运算：cos、abs等</description>
+    </item>
     
     <item>
       <title>第二章：预训练模型（偏趣味）</title>
@@ -49,9 +78,7 @@ from torchvision import transforms preprocess = transforms.Compose([ transforms.
 如下图所示，左图是一个深度学习工程师，她只需要将原数据直接扔进黑箱子，在黑箱子内部自动完成清洗、整理、预测等一系列工作。而右图是一个传统的机器学习工程师，在进行模型训练之前，他需要将数据先进行手动处理，再扔进机器例进行运转。两者的区别在于，左图中的系统发现结果不令人满意，会自动调整数据的处理方式。而右图中的系统再产生不理想的结果后，工程师仍需要手动调整，直至得到满意的结果。
 1.2 Pytorch安装与配置 Pytorch是专门用于深度学习的非常强大的库，如下图所示，Pytorch可以实现一个大型深度学习项目的完整链条。首先，我们需要把原数据转化为Pytorch的核心组件——tensor。随后对模型进行训练，此过程可与分布式计算系统进行交互。训练完成后，可将训练结果按照实际需求进行部署。
  同样，Pytorch的安装非常简单。它为我们提供了非常完善的文档来帮助我们安装，我们只需要上Pytorch官网（https://pytorch.org/get-started/locally/），针对自己的需求选择版本与操作系统，即可自动生成安装命令。
-如果是在anaconda下的环境运行python，则打开anaconda prompt粘贴对应命令。如果是在本地环境下运行python，则打开cmd命令行窗口（windows）/terminal（mac）粘贴对应命令。
-本章小结  深度学习模型自动学习如何联系输入与输出数据 Pytorch帮助相关从业者有效的建立与训练深度学习模型  练习题   你的Python是什么版本？（建议3.6或以上）
-  安装Pytorch并确认能执行以下命令</description>
+如果是在anaconda下的环境运行python，则打开anaconda prompt粘贴对应命令。如果是在本地环境下运行python，则打开cmd命令行窗口（windows）/terminal（mac）粘贴对应命令。</description>
     </item>
     
   </channel>
