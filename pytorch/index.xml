@@ -5,10 +5,25 @@
     <link>https://yinjishen.github.io/pytorch/</link>
     <description>Recent content in Pytorches on Jishen Yin</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 23 Dec 2020 15:29:59 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 24 Dec 2020 14:38:17 -0500</lastBuildDate>
     
 	<atom:link href="https://yinjishen.github.io/pytorch/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第五章：PyTorch实现线性回归</title>
+      <link>https://yinjishen.github.io/pytorch/v/</link>
+      <pubDate>Thu, 24 Dec 2020 14:38:17 -0500</pubDate>
+      
+      <guid>https://yinjishen.github.io/pytorch/v/</guid>
+      <description>此为深度学习书籍《Deep Learning with Pytorch》学习笔记整理系列第四期，因为电脑配置问题，将跳过涉及CUDA/GPU的内容
+书籍pdf链接：https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf
+书籍附源代码链接：https://github.com/deep-learning-with-pytorch/dlwpt-code
+注：所有实现代码均包含以下命令，此后将省略
+%matplotlib inline import matplotlib.pyplot as plt #导入可视化库matplotlib.pyplot import numpy as np #导入tensor常规处理库 #Pytorch主要部件导入 import torch import torch.nn as nn import torch.nn.functional as F import torch.optim as optim torch.set_printoptions(edgeitems=2) #输出长tensor时，保留首尾各2个元素 torch.manual_seed(123) #设置随机数种子 第五章：线性回归的从零实现 5.1 PyTorch自动求梯度原理 PyTorch的核心功能就在于自动求梯度。我们知道，深度学习的过程实际上就是不断地调整模型里的参数，使得损失函数尽可能的小。那么我们就会迫切地关注损失函数关于代求参数的梯度，用于更新参数。在PyTorch定义待估参数的tensor时，可以加入选项requires_grad=True以提供存储梯度的空间。当我们使用参数计算出损失函数值loss时，便可以调用loss.backward()，以回溯至所有和loss相关的带梯度tensor，此时所有requires_grad=True的参数所附的梯度值会自动更新。
+这里需要注意的是，如果重复backward，梯度值是叠加而不是覆盖，所以在循环的时候，要仔细检查是否需要不停地将梯度清零，即params.grad.zero_()（带下划线表示内部操作）。
+5.2 实现线性回归 数据 t_c = [0.5, 14.0, 15.0, 28.0, 11.0, 8.0, 3.0, -4.0, 6.0, 13.0, 21.0] t_u = [35.7, 55.9, 58.2, 81.9, 56.3, 48.9, 33.9, 21.8, 48.4, 60.</description>
+    </item>
     
     <item>
       <title>第四章：将实际数据转换成tensor</title>
