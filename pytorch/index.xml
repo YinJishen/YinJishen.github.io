@@ -5,10 +5,23 @@
     <link>https://yinjishen.github.io/pytorch/</link>
     <description>Recent content in Pytorches on Jishen Yin</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 24 Dec 2020 14:38:17 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 28 Dec 2020 19:07:08 -0500</lastBuildDate>
     
 	<atom:link href="https://yinjishen.github.io/pytorch/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第六章：PyTorch实现BP神经网络</title>
+      <link>https://yinjishen.github.io/pytorch/vi/</link>
+      <pubDate>Mon, 28 Dec 2020 19:07:08 -0500</pubDate>
+      
+      <guid>https://yinjishen.github.io/pytorch/vi/</guid>
+      <description>此为深度学习书籍《Deep Learning with Pytorch》学习笔记整理系列第六期，因为电脑配置问题，将跳过涉及CUDA/GPU的内容
+书籍pdf链接：https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf
+书籍附源代码链接：https://github.com/deep-learning-with-pytorch/dlwpt-code
+注：所有实现代码均包含以下命令，此后将省略
+%matplotlib inline import matplotlib.pyplot as plt #导入可视化库matplotlib.pyplot import numpy as np #导入tensor常规处理库 #Pytorch主要部件导入 import torch import torch.nn as nn import torch.nn.functional as F import torch.optim as optim torch.set_printoptions(edgeitems=2) #输出长tensor时，保留首尾各2个元素 torch.manual_seed(123) #设置随机数种子 第六章：后反馈神经网络 数据 t_c = [0.5, 14.0, 15.0, 28.0, 11.0, 8.0, 3.0, -4.0, 6.0, 13.0, 21.0] t_u = [35.7, 55.9, 58.2, 81.9, 56.3, 48.9, 33.9, 21.8, 48.4, 60.4, 68.4] t_c = torch.tensor(t_c) t_u = torch.</description>
+    </item>
     
     <item>
       <title>第五章：PyTorch实现线性回归</title>
@@ -16,7 +29,7 @@
       <pubDate>Thu, 24 Dec 2020 14:38:17 -0500</pubDate>
       
       <guid>https://yinjishen.github.io/pytorch/v/</guid>
-      <description>此为深度学习书籍《Deep Learning with Pytorch》学习笔记整理系列第四期，因为电脑配置问题，将跳过涉及CUDA/GPU的内容
+      <description>此为深度学习书籍《Deep Learning with Pytorch》学习笔记整理系列第五期，因为电脑配置问题，将跳过涉及CUDA/GPU的内容
 书籍pdf链接：https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf
 书籍附源代码链接：https://github.com/deep-learning-with-pytorch/dlwpt-code
 注：所有实现代码均包含以下命令，此后将省略
